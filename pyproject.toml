@@ -1,0 +1,12 @@
+[tool.taskipy.tasks]
+run = 'uvicorn src.app:app --reload'
+pre_test = 'task lint'
+test = 'pytest --cov=src -vv'
+post_test = 'coverage html'
+lint = 'ruff check . ; ruff check . --diff'
+format = 'ruff check . --fix ; ruff format .'
+
+
+[tool.pytest.ini_options]
+pythonpath = "."
+addopts = '-p no:warnings'
