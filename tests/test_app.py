@@ -53,7 +53,8 @@ def test_update_user(client):
         "email": "aaa@aaa.com",
     }
 
+
 def test_delete(client):
     response = client.delete("/user/1")
 
-    assert response.json() == {'message': 'User deleted'}
+    assert response.json() == {"message": "User deleted"}
